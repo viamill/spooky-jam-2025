@@ -33,6 +33,8 @@ func _physics_process(delta: float) -> void:
 func handle_input(event: InputEvent) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	_input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	
 	if event is InputEventMouseMotion:
 		rotate_y(-deg_to_rad(event.relative.x * mouse_sensitivity))
 		head.rotate_x(-deg_to_rad(event.relative.y * mouse_sensitivity))
@@ -42,5 +44,3 @@ func handle_input(event: InputEvent) -> void:
 		var collider: Object = raycast.get_collider()
 		if collider and collider is Interactable:
 			collider.interact()
-	
-	_input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
