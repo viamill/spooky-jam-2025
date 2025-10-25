@@ -13,10 +13,6 @@ var _input_dir: Vector2
 @onready var camera: Camera3D = $Head/Camera
 
 
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -33,7 +29,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func handle_input(event: InputEvent) -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	if event is InputEventMouseMotion:
 		rotate_y(-deg_to_rad(event.relative.x * mouse_sensitivity))
 		head.rotate_x(-deg_to_rad(event.relative.y * mouse_sensitivity))

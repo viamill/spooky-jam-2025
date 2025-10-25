@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctgqoehp6yfro"]
+
+[ext_resource type="PackedScene" uid="uid://5bfkb62tk8ys" path="res://temp/test_range.tscn" id="1_7uq6d"]
+[ext_resource type="Script" uid="uid://c3sw6fi03be47" path="res://src/game.gd" id="1_xq6wo"]
+[ext_resource type="PackedScene" uid="uid://cpdl6ffkel75e" path="res://src/player/player.tscn" id="2_3msxb"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_xq6wo")
+
+[node name="TestRange" parent="." instance=ExtResource("1_7uq6d")]
+
+[node name="Player" parent="TestRange" instance=ExtResource("2_3msxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
