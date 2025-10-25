@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cd02mm4ktaqrk"]
+[gd_scene load_steps=21 format=3 uid="uid://cd02mm4ktaqrk"]
 
 [ext_resource type="Script" uid="uid://c3esvx2w4ns55" path="res://src/interactables/bed.gd" id="1_rwo1n"]
 [ext_resource type="PackedScene" uid="uid://cm37go1q8bkqv" path="res://temp/interactable_box.tscn" id="1_tv6ml"]
 [ext_resource type="PackedScene" uid="uid://d3saec0iu5nj" path="res://src/interactables/door.tscn" id="3_t83go"]
 [ext_resource type="PackedScene" uid="uid://b5vvt3v8coko" path="res://src/interactables/lightswitch.tscn" id="4_y84fu"]
+[ext_resource type="PackedScene" uid="uid://cqood4yswagvp" path="res://src/interactables/tv.tscn" id="5_6l80s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2pfp"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -234,18 +235,8 @@ size = Vector3(8.5, 1, 1.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.75)
 size = Vector3(6, 1, 2.5)
 
-[node name="TVStand" type="CSGBox3D" parent="HouseDesign/Living"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.25, -5.75)
-size = Vector3(5, 1.5, 1.5)
-material = SubResource("StandardMaterial3D_05s7o")
-
-[node name="TV" type="CSGBox3D" parent="HouseDesign/Living/TVStand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -0.25)
-size = Vector3(4.5, 2.5, 0.5)
-material = SubResource("StandardMaterial3D_05s7o")
-
-[node name="MovieCabinet" type="CSGBox3D" parent="HouseDesign/Living/TVStand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.75, 0)
+[node name="MovieCabinet" type="CSGBox3D" parent="HouseDesign/Living"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -5.75)
 size = Vector3(2, 3.5, 1)
 material = SubResource("StandardMaterial3D_05s7o")
 
@@ -391,3 +382,6 @@ omni_range = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 1)
 light_energy = 10.0
 omni_range = 10.0
+
+[node name="TV" parent="." instance=ExtResource("5_6l80s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -14.75)
