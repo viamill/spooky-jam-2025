@@ -11,4 +11,4 @@ script = ExtResource("1_xq6wo")
 
 [node name="Player" parent="House_Level" instance=ExtResource("2_3msxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-walk_speed = 2.0
+walk_speed = 5.0

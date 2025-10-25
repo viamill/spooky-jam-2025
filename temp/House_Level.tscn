@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd02mm4ktaqrk"]
+[gd_scene load_steps=19 format=3 uid="uid://cd02mm4ktaqrk"]
 
 [ext_resource type="Script" uid="uid://c3esvx2w4ns55" path="res://src/interactables/bed.gd" id="1_rwo1n"]
 [ext_resource type="PackedScene" uid="uid://cm37go1q8bkqv" path="res://temp/interactable_box.tscn" id="1_tv6ml"]
+[ext_resource type="PackedScene" uid="uid://d3saec0iu5nj" path="res://src/interactables/door.tscn" id="3_t83go"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2pfp"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -115,11 +116,6 @@ material = SubResource("StandardMaterial3D_rwo1n")
 
 [node name="FrontDoor" type="CSGBox3D" parent="HouseDesign/HouseStructure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -16)
-size = Vector3(4, 7, 1)
-material = SubResource("StandardMaterial3D_cbfiq")
-
-[node name="BathroomDoor" type="CSGBox3D" parent="HouseDesign/HouseStructure"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 3, 1)
 size = Vector3(4, 7, 1)
 material = SubResource("StandardMaterial3D_cbfiq")
 
@@ -314,3 +310,7 @@ material = SubResource("StandardMaterial3D_tv6ml")
 
 [node name="InteractableBox" parent="." instance=ExtResource("1_tv6ml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -7.5)
+
+[node name="BathroomDoor" parent="." instance=ExtResource("3_t83go")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, -0.5, 1)
+open_rotation = -5
