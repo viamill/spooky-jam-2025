@@ -21,3 +21,6 @@ mesh = SubResource("CapsuleMesh_4anbu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
+
+[node name="Raycast" type="RayCast3D" parent="Head"]
+target_position = Vector3(0, 0, -2)

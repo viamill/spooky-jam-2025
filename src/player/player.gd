@@ -11,6 +11,7 @@ var _input_dir: Vector2
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
+@onready var raycast: RayCast3D = $Head/Raycast
 
 
 func _physics_process(delta: float) -> void:
@@ -36,5 +37,10 @@ func handle_input(event: InputEvent) -> void:
 		rotate_y(-deg_to_rad(event.relative.x * mouse_sensitivity))
 		head.rotate_x(-deg_to_rad(event.relative.y * mouse_sensitivity))
 		head.rotation.x = clampf(head.rotation.x, deg_to_rad(-89), deg_to_rad(90))
+	
+	if event.is_action_pressed("interact"):
+		var collider: Object = raycast.get_collider()
+		if collider and collider is Interactable:
+			collider.interact()
 	
 	_input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
