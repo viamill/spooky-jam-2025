@@ -1,7 +1,7 @@
 extends Node
 
 
-@onready var player: Player = $TestRange/Player
+@onready var player: Player = $House_Level/Player
 
 
 func _ready() -> void:
