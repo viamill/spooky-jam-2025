@@ -1,0 +1,20 @@
+extends Node
+
+enum Anomaly {NONE, TEST1, TEST2, TEST3}
+enum GhostType {TEST}
+
+var ghost : Ghost
+var cur_anomaly : Anomaly 
+
+func start_game():
+	ghost = Ghost.new()
+	cur_anomaly = Anomaly.NONE
+	get_tree().change_scene_to_file("res://src/game.tscn")
+
+func next():
+	var next_anomaly = ghost.anomalies.pop_back()
+	if next_anomaly != null:
+		cur_anomaly = next_anomaly
+		get_tree().change_scene_to_file("res://src/game.tscn")
+	else:
+		print("GAME WIN")

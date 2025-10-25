@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Spooky Game Jam 25"
-run/main_scene="uid://ctgqoehp6yfro"
+run/main_scene="uid://bpct2or5ccldm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 InputStack="*res://src/globals/input_stack.gd"
+GameManager="*res://src/globals/game_manager.gd"
 
 [input]
 
