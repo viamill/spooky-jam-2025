@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpct2or5ccldm"]
+
+[ext_resource type="Script" uid="uid://bceobr2f4swe5" path="res://src/main_menu.gd" id="1_guuao"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_guuao")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 324.0
+offset_right = 723.0
+offset_bottom = 394.0
+text = "Play!!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
