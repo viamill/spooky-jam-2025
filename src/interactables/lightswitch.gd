@@ -1,9 +1,9 @@
 extends Interactable
 
 
-@export var lights: Array[Light3D]
-
 var _is_on: bool = true
+
+@export var lights: Array[Light3D]
 
 
 func interact() -> void:

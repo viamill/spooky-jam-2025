@@ -1,10 +1,9 @@
 extends Interactable
 
 
-@onready var label_3d: Label3D = $Label3D
-
-
 var _is_on: bool = false
+
+@onready var label_3d: Label3D = $Label3D
 
 
 func interact() -> void:
