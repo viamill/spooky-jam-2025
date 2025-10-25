@@ -369,12 +369,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.5, 4)
 lights = [NodePath("DiningRoomLight"), NodePath("DiningRoomLight2")]
 
 [node name="DiningRoomLight" type="OmniLight3D" parent="DiningRoomLightswitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -5)
 light_energy = 10.0
 omni_range = 10.0
 
 [node name="DiningRoomLight2" type="OmniLight3D" parent="DiningRoomLightswitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 5)
 light_energy = 10.0
 omni_range = 10.0
 
@@ -383,11 +383,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1.5, 8)
 lights = [NodePath("BedroomLight"), NodePath("BedroomLight2")]
 
 [node name="BedroomLight" type="OmniLight3D" parent="BedroomLightswitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 1)
 light_energy = 10.0
 omni_range = 10.0
 
 [node name="BedroomLight2" type="OmniLight3D" parent="BedroomLightswitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 1)
 light_energy = 10.0
 omni_range = 10.0
