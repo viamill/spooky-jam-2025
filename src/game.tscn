@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ctgqoehp6yfro"]
+[gd_scene load_steps=24 format=3 uid="uid://ctgqoehp6yfro"]
 
 [ext_resource type="Script" uid="uid://c3sw6fi03be47" path="res://src/game.gd" id="1_xq6wo"]
 [ext_resource type="PackedScene" uid="uid://cpdl6ffkel75e" path="res://src/player/player.tscn" id="2_3msxb"]
@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://b75avxfdmk0ss" path="res://assets/Silent Death.ttf" id="6_pk08u"]
 [ext_resource type="PackedScene" uid="uid://b5vvt3v8coko" path="res://src/interactables/haunted interactables/haunted electronics/lightswitch.tscn" id="7_4bcji"]
 [ext_resource type="Script" uid="uid://cqblrn854co36" path="res://src/anomalies/electronic_anomalies.gd" id="7_uktfx"]
+[ext_resource type="AudioStream" uid="uid://jwxbdx2lgdi6" path="res://assets/vicodin.ogg" id="8_b6dhc"]
+[ext_resource type="Texture2D" uid="uid://1hst0deld12w" path="res://assets/house.png" id="8_lslma"]
 [ext_resource type="PackedScene" uid="uid://cqood4yswagvp" path="res://src/interactables/haunted interactables/haunted electronics/tv.tscn" id="8_uktfx"]
 [ext_resource type="PackedScene" uid="uid://t1jloi4qaf20" path="res://src/interactables/haunted interactables/haunted electronics/radio.tscn" id="9_y2hwx"]
 [ext_resource type="Script" uid="uid://duuwrvi1mwhjn" path="res://src/anomalies/broken_anomalies.gd" id="11_y2hwx"]
@@ -17,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bt3sv53ijsa4i" path="res://src/anomalies/audio_anomalies.gd" id="15_a7soy"]
 [ext_resource type="PackedScene" uid="uid://d3saec0iu5nj" path="res://src/interactables/haunted interactables/haunted audio/bathroom_door.tscn" id="16_aikvj"]
 [ext_resource type="PackedScene" uid="uid://c8d3s2ok30lbm" path="res://src/interactables/haunted interactables/haunted audio/front_door.tscn" id="17_ns0lu"]
+[ext_resource type="PackedScene" uid="uid://bf3d36d4oaj0h" path="res://src/interactables/exorcisms/exorcism.tscn" id="18_tqu6b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqvko"]
 
@@ -65,12 +68,23 @@ offset_bottom = 550.0
 theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_pk08u")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wqvko")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cdx1q")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_4bcji")
-text = "ghosts???"
+text = "There's something else in this apartment with me. The spirit is desperately trying to possess me, but I have held strong. I must exorcize it from my apartment before it takes complete control over me. I've narrowed it down to three different ghosts, but they each have different exorcism methods.
+
+Demon: Demons are very aggressive spirits. They will try to intimidate me and break things
+Poltergeist: Poltergeists like to interact with the physical objects and place things around within the apartment.
+Wraith: Wraiths are less tangible and struggle to interact as physically as Demons and Poltergeists, their presence messes with electronics
+
+Note to self: There may be anomalies within my apartment. I must cleanse them with sage before I go to bed or the spirit will have an opening to possess me. I only have enough sage to use it once a day, so I have to use it sparingly."
+placeholder_text = "Demons:  BROKEN, AUDIO, ELECTRONIC
+POLT: PLACE, AUDIO, ELECTRONIC
+BANSHEE: AUDIO, PLACE, BROKEN"
 editable = false
+wrap_mode = 1
+scroll_vertical = 3.0
 
 [node name="TextEdit2" type="TextEdit" parent="Menus/Journal"]
 layout_mode = 0
@@ -134,6 +148,23 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
+[node name="GhostSurprise" type="TextureRect" parent="Menus/GameOver"]
+visible = false
+modulate = Color(0.670588, 0, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -289.0
+offset_right = 217.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_lslma")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Menus/GameOver"]
 layout_mode = 1
 anchors_preset = 8
@@ -169,12 +200,23 @@ text = "Invalid End State"
 scroll_active = false
 horizontal_alignment = 1
 
+[node name="JumpScare" type="AudioStreamPlayer" parent="Menus/GameOver"]
+stream = ExtResource("8_b6dhc")
+volume_db = 10.0
+pitch_scale = 0.5
+
 [node name="BrokenAnomalies" type="Node" parent="."]
 script = ExtResource("11_y2hwx")
 metadata/_custom_type_script = "uid://duuwrvi1mwhjn"
 
 [node name="Mirror" parent="BrokenAnomalies" instance=ExtResource("12_qiocs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 3, 15.5)
+
+[node name="Mirror2" parent="BrokenAnomalies" instance=ExtResource("12_qiocs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 15.5)
+
+[node name="Mirror3" parent="BrokenAnomalies" instance=ExtResource("12_qiocs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5, 3, -8.5)
 
 [node name="ElectronicAnomalies" type="Node" parent="."]
 script = ExtResource("7_uktfx")
@@ -289,6 +331,9 @@ open_rotation = -5
 
 [node name="FrontDoor" parent="AudioAnomalies" instance=ExtResource("17_ns0lu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, -16)
+
+[node name="Exorcism" parent="." instance=ExtResource("18_tqu6b")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 6)
 
 [connection signal="pressed" from="Menus/Pause/VBoxContainer/Resume" to="Menus" method="close_menu"]
 [connection signal="pressed" from="Menus/Pause/VBoxContainer/Quit" to="Menus" method="quit"]

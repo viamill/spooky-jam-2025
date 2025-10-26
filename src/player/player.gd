@@ -14,15 +14,16 @@ var has_sage: bool = true
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
 @onready var raycast: RayCast3D = $Head/Raycast
-@onready var label: Label = $Control/Label
+@onready var sage_label: Label = $Control/VBoxContainer/SageLabel
+@onready var interact_label: Label = $Control/InteractLabel
 
 
 func _physics_process(delta: float) -> void:
-	label.visible = false
+	interact_label.visible = false
 	if raycast.is_colliding():
 		var collider: Object = raycast.get_collider()
 		if collider is Interactable:
-			label.visible = true
+			interact_label.visible = true
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -61,3 +62,4 @@ func handle_input(event: InputEvent) -> void:
 			var current_haunted_item: HauntedInteractable = game.current_haunted_item
 			if global_position.distance_to(current_haunted_item.global_position) <= 5.0:
 				game.current_haunted_item.is_cleansed = true
+		sage_label.text = "E - Use sage (0 Charges)"

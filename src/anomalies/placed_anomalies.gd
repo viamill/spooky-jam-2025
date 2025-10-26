@@ -10,5 +10,5 @@ func haunt_item() -> HauntedInteractable:
 	var positions = get_children()
 	positions.shuffle()
 	ghost_orb.global_position = positions.front().global_position
-	print("ghost_orb")
+	print("orb")
 	return ghost_orb

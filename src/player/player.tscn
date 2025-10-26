@@ -66,9 +66,10 @@ grow_vertical = 0
 
 [node name="SageLabel" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "E - Use sage (1 Charge)"
+text = "E - Use sage (1 Charge)
+J - Journal"
 
-[node name="Label" type="Label" parent="Control"]
+[node name="InteractLabel" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

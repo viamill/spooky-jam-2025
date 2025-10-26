@@ -7,11 +7,11 @@ extends Control
 var cur_menu : Control = null
 
 func _ready() -> void:
-	print(get_path())
+	$Journal/TextEdit2.text= GameManager.text_notes
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
-		print("escape")
+		#print("escape")
 		if !cur_menu: open_menu(pause)
 		else: close_menu()
 	elif event.is_action_pressed("journal") and !cur_menu:
@@ -19,7 +19,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func end_game(win : bool):
 	if win: game_over_text.text = "You exorcised the ghost!"
-	else: game_over_text.text = "You've been possessed!"
+	else:
+		game_over_text.text = "You've been possessed!"
+		$GameOver/JumpScare.play()
+		$GameOver/GhostSurprise.visible = true
 	open_menu(game_over)
 
 func open_menu(menu : Control):
@@ -41,4 +44,5 @@ func quit() -> void:
 
 func restart() -> void:
 	get_tree().paused = false
+	GameManager.start_exorcism = false
 	GameManager.start_game()

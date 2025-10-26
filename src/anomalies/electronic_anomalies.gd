@@ -19,6 +19,6 @@ func haunt_item() -> Interactable:
 		possessed_electronic = electronic
 		
 	possessed_electronic.haunt()
-	print(possessed_electronic)
 	possessed_electronic.is_interacted = false
+	print("electronic")
 	return possessed_electronic

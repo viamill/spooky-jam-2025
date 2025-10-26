@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf3d36d4oaj0h"]
+
+[ext_resource type="Script" uid="uid://b2klm10adbp15" path="res://src/interactables/exorcisms/exorcism.gd" id="1_0ebgs"]
+[ext_resource type="Script" uid="uid://cukcn1xgk6utt" path="res://src/interactables/exorcisms/demon_exorcism.gd" id="2_ikxin"]
+[ext_resource type="Script" uid="uid://3ejaqkk6oitc" path="res://src/interactables/exorcisms/banshee_exorcism.gd" id="3_6od56"]
+[ext_resource type="Script" uid="uid://btqfuqt5wvyva" path="res://src/interactables/exorcisms/poltergeist_exorcism.gd" id="4_uxttt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b6dhc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lslma"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sv437"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.392157)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fytc"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.392157)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra4no"]
+transparency = 1
+albedo_color = Color(3.36915e-06, 0.612489, 0.614579, 0.392157)
+
+[node name="Exorcism" type="Node3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_0ebgs")
+
+[node name="DemonExorcism" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
+script = ExtResource("2_ikxin")
+metadata/_custom_type_script = "uid://bh4fink2wpb0e"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DemonExorcism"]
+shape = SubResource("BoxShape3D_b6dhc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DemonExorcism"]
+mesh = SubResource("BoxMesh_lslma")
+surface_material_override/0 = SubResource("StandardMaterial3D_sv437")
+
+[node name="Label3D" type="Label3D" parent="DemonExorcism"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+text = "EXORCISE DEMON"
+
+[node name="BansheeExorcism" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -2)
+script = ExtResource("3_6od56")
+metadata/_custom_type_script = "uid://bh4fink2wpb0e"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BansheeExorcism"]
+shape = SubResource("BoxShape3D_b6dhc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BansheeExorcism"]
+mesh = SubResource("BoxMesh_lslma")
+surface_material_override/0 = SubResource("StandardMaterial3D_6fytc")
+
+[node name="Label3D" type="Label3D" parent="BansheeExorcism"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+text = "EXORCISE BANSHEE"
+
+[node name="PoltergeistExorcism" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -2)
+script = ExtResource("4_uxttt")
+metadata/_custom_type_script = "uid://bh4fink2wpb0e"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoltergeistExorcism"]
+shape = SubResource("BoxShape3D_b6dhc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PoltergeistExorcism"]
+mesh = SubResource("BoxMesh_lslma")
+surface_material_override/0 = SubResource("StandardMaterial3D_ra4no")
+
+[node name="Label3D" type="Label3D" parent="PoltergeistExorcism"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+text = "EXORCISE POLTERGEIST"

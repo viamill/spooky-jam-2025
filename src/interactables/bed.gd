@@ -6,5 +6,4 @@ func interact() -> void:
 	if not game.current_haunted_item or game.current_haunted_item.is_cleansed:
 		GameManager.next()
 	else:
-		var menu = get_node("/root/Game/Menus")
-		menu.end_game(false)
+		game.menus.end_game(false)

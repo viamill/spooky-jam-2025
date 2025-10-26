@@ -72,7 +72,6 @@ material = SubResource("StandardMaterial3D_rwo1n")
 
 [node name="Roof" type="CSGBox3D" parent="HouseDesign/HouseStructure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 7, 0)
-visible = false
 size = Vector3(49, 1, 33)
 material = SubResource("StandardMaterial3D_rwo1n")
 
