@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Spooky Game Jam 25"
-run/main_scene="uid://bpct2or5ccldm"
+run/main_scene="uid://cr17sxw8452hp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

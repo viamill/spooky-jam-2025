@@ -301,87 +301,89 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.75, -2.5)
 size = Vector3(1, 4.5, 3)
 material = SubResource("StandardMaterial3D_tv6ml")
 
-[node name="BathroomDoor" parent="." instance=ExtResource("3_t83go")]
+[node name="Interactables" type="Node" parent="."]
+
+[node name="BathroomDoor" parent="Interactables" instance=ExtResource("3_t83go")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, -0.5, 1)
 open_rotation = -5
 
-[node name="BathroomLightswitch" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
+[node name="BathroomLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.5, 6)
 lights = [NodePath("BathroomLight"), NodePath("BathroomLight2")]
 
-[node name="BathroomLight" type="OmniLight3D" parent="BathroomLightswitch"]
+[node name="BathroomLight" type="OmniLight3D" parent="Interactables/BathroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 5)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="BathroomLight2" type="OmniLight3D" parent="BathroomLightswitch"]
+[node name="BathroomLight2" type="OmniLight3D" parent="Interactables/BathroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -1)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="LivingRoomLightswitch" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
+[node name="LivingRoomLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -14)
 lights = [NodePath("LivingRoomLight"), NodePath("LivingRoomLight2"), NodePath("LivingRoomLight3"), NodePath("LivingRoomLight4")]
 
-[node name="LivingRoomLight" type="OmniLight3D" parent="LivingRoomLightswitch"]
+[node name="LivingRoomLight" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 5)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="LivingRoomLight2" type="OmniLight3D" parent="LivingRoomLightswitch"]
+[node name="LivingRoomLight2" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 5)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="LivingRoomLight3" type="OmniLight3D" parent="LivingRoomLightswitch"]
+[node name="LivingRoomLight3" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 13)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="LivingRoomLight4" type="OmniLight3D" parent="LivingRoomLightswitch"]
+[node name="LivingRoomLight4" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 13)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="KitchenLightswitch" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
+[node name="KitchenLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -14)
 lights = [NodePath("KitchenLight")]
 
-[node name="KitchenLight" type="OmniLight3D" parent="KitchenLightswitch"]
+[node name="KitchenLight" type="OmniLight3D" parent="Interactables/KitchenLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 5)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="DiningRoomLightswitch" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
+[node name="DiningRoomLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.5, 4)
 lights = [NodePath("DiningRoomLight"), NodePath("DiningRoomLight2")]
 
-[node name="DiningRoomLight" type="OmniLight3D" parent="DiningRoomLightswitch"]
+[node name="DiningRoomLight" type="OmniLight3D" parent="Interactables/DiningRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -5)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="DiningRoomLight2" type="OmniLight3D" parent="DiningRoomLightswitch"]
+[node name="DiningRoomLight2" type="OmniLight3D" parent="Interactables/DiningRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 5)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="BedroomLightswitch" parent="." node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
+[node name="BedroomLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1.5, 8)
 lights = [NodePath("BedroomLight"), NodePath("BedroomLight2")]
 
-[node name="BedroomLight" type="OmniLight3D" parent="BedroomLightswitch"]
+[node name="BedroomLight" type="OmniLight3D" parent="Interactables/BedroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 1)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="BedroomLight2" type="OmniLight3D" parent="BedroomLightswitch"]
+[node name="BedroomLight2" type="OmniLight3D" parent="Interactables/BedroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 1)
 light_energy = 10.0
 omni_range = 10.0
 
-[node name="TV" parent="." instance=ExtResource("5_6l80s")]
+[node name="TV" parent="Interactables" instance=ExtResource("5_6l80s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -14.75)
 
-[node name="Radio" parent="." instance=ExtResource("5_a4q3j")]
+[node name="Radio" parent="Interactables" instance=ExtResource("5_a4q3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -7)
