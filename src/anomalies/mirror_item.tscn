@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c76xsf036oouh"]
+
+[ext_resource type="Script" uid="uid://cglkcgcfs3v3" path="res://src/anomalies/anom_item.gd" id="1_a1r0x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvolh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q57vq"]
+albedo_color = Color(0, 0.63537, 0.715183, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_regpq"]
+material = SubResource("StandardMaterial3D_q57vq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p45cr"]
+albedo_color = Color(0.72, 0.024, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rstxf"]
+material = SubResource("StandardMaterial3D_p45cr")
+
+[node name="MirrorItem" type="Node3D" node_paths=PackedStringArray("norm_version", "anom_version")]
+script = ExtResource("1_a1r0x")
+norm_version = NodePath("norm_version")
+anom_version = NodePath("anom_version")
+metadata/_custom_type_script = "uid://cglkcgcfs3v3"
+
+[node name="anom_version" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="anom_version"]
+shape = SubResource("BoxShape3D_lvolh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="anom_version"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_regpq")
+
+[node name="norm_version" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="norm_version"]
+shape = SubResource("BoxShape3D_lvolh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="norm_version"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_rstxf")

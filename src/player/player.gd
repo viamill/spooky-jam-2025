@@ -31,14 +31,20 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_input(event: InputEvent) -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	_input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	
 	if event is InputEventMouseMotion:
 		rotate_y(-deg_to_rad(event.relative.x * mouse_sensitivity))
 		head.rotate_x(-deg_to_rad(event.relative.y * mouse_sensitivity))
 		head.rotation.x = clampf(head.rotation.x, deg_to_rad(-89), deg_to_rad(90))
+	else: #This is to make it so I can look around on remote desktop! - Richard	
+		var _mouse_input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		rotate_y(-deg_to_rad(_mouse_input_dir.x * 10 * mouse_sensitivity))
+		head.rotate_x(-deg_to_rad(_mouse_input_dir.y * 10 * mouse_sensitivity))
+		head.rotation.x = clampf(head.rotation.x, deg_to_rad(-89), deg_to_rad(90))
+	
+
 	
 	if event.is_action_pressed("interact"):
 		var collider: Object = raycast.get_collider()
