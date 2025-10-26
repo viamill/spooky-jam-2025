@@ -53,11 +53,12 @@ func handle_input(event: InputEvent) -> void:
 		var collider: Object = raycast.get_collider()
 		if collider and collider is Interactable:
 			collider.interact()
+			
 	if event.is_action_pressed("sage") and sage_not_used:
 		sage_not_used = false
-		if game.anomaly == GameManager.Anomaly.NONE:
+		if (GameManager.ghost.cur_anomaly_type == GameManager.AnomalyType.NONE):
 			#if we think its too difficult, we could remove this
 			var menu = get_node("/root/Game/Menus")
 			menu.end_game(false)
-		elif global_position.distance_to(game.anomaly_node.global_position) <= 5:
+		elif global_position.distance_to(GameManager.ghost.cur_anomaly.global_position) <= 5:
 			game.anomaly_cleansed = true

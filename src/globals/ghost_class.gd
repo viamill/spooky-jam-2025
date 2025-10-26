@@ -24,7 +24,9 @@ func get_next_anomaly():
 	if (possible_anomalies.size() != 0):
 		cur_anomaly_type = possible_anomalies.pop_back()
 		cur_anomaly = GameManager.game.get_anomaly(cur_anomaly_type)
+		
 		if cur_anomaly != null:
+			print("Current Anomaly: " , cur_anomaly.get_path())
 			cur_anomaly.possess() #Notifies object that it is posseded
 		return cur_anomaly_type
 	else:

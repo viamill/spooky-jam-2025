@@ -27,6 +27,7 @@ func get_anomaly(type: GameManager.AnomalyType) -> Node:
 			selected = audio_anom_parent
 		_:
 			return null
+	print("Anom Type: ", type)
 	var options = selected.get_children()
 	options.shuffle()
 	if options.size() == 0:
