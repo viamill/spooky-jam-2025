@@ -20,7 +20,12 @@ func _init() -> void:
 	cur_anomaly_type = GameManager.AnomalyType.NONE
 	cur_anomaly = null
 
-func get_next_anomaly() -> GameManager.AnomalyType:
-	cur_anomaly_type = possible_anomalies.pop_back()
-	cur_anomaly = GameManager.game.get_anomaly(cur_anomaly_type)
-	return cur_anomaly_type
+func get_next_anomaly():
+	if (possible_anomalies.size() != 0):
+		cur_anomaly_type = possible_anomalies.pop_back()
+		cur_anomaly = GameManager.game.get_anomaly(cur_anomaly_type)
+		if cur_anomaly != null:
+			cur_anomaly.possess() #Notifies object that it is posseded
+		return cur_anomaly_type
+	else:
+		return null

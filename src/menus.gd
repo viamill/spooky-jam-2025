@@ -37,6 +37,7 @@ func close_menu():
 func quit() -> void:
 	get_tree().paused = false
 	InputStack.reset()
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	get_tree().change_scene_to_file("res://src/main_menu.tscn")
 
 func restart() -> void:

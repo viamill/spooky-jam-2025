@@ -29,7 +29,10 @@ func get_anomaly(type: GameManager.AnomalyType) -> Node:
 			return null
 	var options = selected.get_children()
 	options.shuffle()
-	return options[0]
+	if options.size() == 0:
+		return null
+	else:
+		return options[0]
 
 
 func _ready() -> void:
