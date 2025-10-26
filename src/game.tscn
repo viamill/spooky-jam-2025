@@ -179,30 +179,37 @@ horizontal_alignment = 1
 [node name="BrokenAnomParent" type="Node" parent="AnomParents"]
 
 [node name="MirrorItem" parent="AnomParents/BrokenAnomParent" instance=ExtResource("7_y2hwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02969, 3.43026, 15.0077)
 
 [node name="PlacedAnomParent" type="Node" parent="AnomParents"]
 
 [node name="MirrorItem" parent="AnomParents/PlacedAnomParent" instance=ExtResource("8_qiocs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6276, 3.37281, -9.49251)
 
 [node name="MovedAnomParent" type="Node" parent="AnomParents"]
 
 [node name="MirrorItem" parent="AnomParents/MovedAnomParent" instance=ExtResource("8_qiocs")]
+transform = Transform3D(1.68023, 0, 0, 0, 1.67513, 0, 0, 0, 1, -22.4797, 2.88789, 15.0432)
 
 [node name="ElectronicAnomParent" type="Node" parent="AnomParents"]
 
 [node name="TV" parent="AnomParents/ElectronicAnomParent" instance=ExtResource("9_xdrfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.19239, -0.13639, -14.4066)
 
 [node name="Radio" parent="AnomParents/ElectronicAnomParent" instance=ExtResource("10_g3j30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11002, 1.59434, -6.98397)
 
 [node name="MirrorItem" parent="AnomParents/ElectronicAnomParent/Radio" instance=ExtResource("7_y2hwx")]
 
 [node name="VisualAnomParent" type="Node" parent="AnomParents"]
 
 [node name="MirrorItem" parent="AnomParents/VisualAnomParent" instance=ExtResource("11_a7soy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07494, 1.8923, 1.17816)
 
 [node name="AudioAnomParent" type="Node" parent="AnomParents"]
 
 [node name="MirrorItem" parent="AnomParents/AudioAnomParent" instance=ExtResource("7_y2hwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07985, 4.57516, -10.6609)
 
 [connection signal="pressed" from="Menus/Pause/VBoxContainer/Resume" to="Menus" method="close_menu"]
 [connection signal="pressed" from="Menus/Pause/VBoxContainer/Quit" to="Menus" method="quit"]

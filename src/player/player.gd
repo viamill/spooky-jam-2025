@@ -61,4 +61,4 @@ func handle_input(event: InputEvent) -> void:
 			var menu = get_node("/root/Game/Menus")
 			menu.end_game(false)
 		elif global_position.distance_to(GameManager.ghost.cur_anomaly.global_position) <= 5:
-			game.anomaly_cleansed = true
+			GameManager.anomaly_cleansed = true

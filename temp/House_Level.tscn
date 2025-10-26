@@ -56,6 +56,7 @@ albedo_color = Color(0.0352, 0.19712, 0.44, 1)
 albedo_color = Color(0.44, 0.325307, 0.0352, 1)
 
 [node name="House_Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14807, 0.265614, 16.3811)
 
 [node name="Environment+Lighting" type="Node" parent="."]
 
@@ -288,6 +289,7 @@ material = SubResource("StandardMaterial3D_tv6ml")
 
 [node name="Mirror" type="CSGBox3D" parent="HouseDesign/Bathing/Sink"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.929749)
+visible = false
 size = Vector3(2, 2, 0.140503)
 material = SubResource("StandardMaterial3D_tv6ml")
 
@@ -395,6 +397,8 @@ omni_range = 10.0
 
 [node name="TV" parent="Interactables" instance=ExtResource("5_6l80s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -14.75)
+visible = false
 
 [node name="Radio" parent="Interactables" instance=ExtResource("5_a4q3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -7)
+visible = false

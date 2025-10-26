@@ -21,18 +21,17 @@ func next():
 		var menu = get_node("/root/Game/Menus")
 		menu.end_game(false)
 	else:
-		var next_anomaly = ghost.get_next_anomaly()
-		if next_anomaly != null:
-			anomaly_cleansed = next_anomaly == GameManager.AnomalyType.NONE
+		if ghost.possible_anomalies.size() > 0:
 			get_tree().change_scene_to_file("res://src/game.tscn")
 		else:
 			anomaly_cleansed = false
-			next_anomaly == GameManager.AnomalyType.NONE
 			last_round = true
 			get_tree().change_scene_to_file("res://src/game.tscn")
 
 func load(g : Game):
 	game = g
+	var next_anomaly = ghost.get_next_anomaly()
+	anomaly_cleansed = next_anomaly == GameManager.AnomalyType.NONE
 	if last_round:
 		var exorcism =  load("res://src/interactables/exorcism.tscn").instantiate()
 		game.add_child(exorcism)
