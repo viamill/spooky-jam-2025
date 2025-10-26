@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3sw6fi03be47" path="res://src/game.gd" id="1_xq6wo"]
 [ext_resource type="PackedScene" uid="uid://cpdl6ffkel75e" path="res://src/player/player.tscn" id="2_3msxb"]
-[ext_resource type="PackedScene" uid="uid://fy38mi628y1s" path="res://temp/house_level.tscn" id="2_xq6wo"]
+[ext_resource type="PackedScene" uid="uid://fy38mi628y1s" path="res://temp/House_Level.tscn" id="2_xq6wo"]
 [ext_resource type="Script" uid="uid://bkltf3bi81jr" path="res://src/menus.gd" id="4_kc8ui"]
 [ext_resource type="Texture2D" uid="uid://0i48yl6lcaex" path="res://assets/notebook.png" id="5_bs6l1"]
 [ext_resource type="FontFile" uid="uid://b75avxfdmk0ss" path="res://assets/Silent Death.ttf" id="6_pk08u"]

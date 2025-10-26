@@ -38,5 +38,6 @@ func get_anomaly(type: GameManager.AnomalyType) -> Node:
 
 func _ready() -> void:
 	InputStack.register_input_callback(player.handle_input)
-	GameManager.game = self
+	GameManager.load(self)
+	#GameManager.game = self
 	#GameManager.set_anomaly()

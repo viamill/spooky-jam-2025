@@ -7,13 +7,14 @@ enum AnomalyType {NONE, BROKEN, PLACED, MOVED, ELECTRONIC, VISUAL, AUDIO}
 var ghost : Ghost
 var game : Game
 var anomaly_cleansed = true
+var last_round : bool = false
 
 #On game start, a ghost is chosen and the scene is loaded without an anomaly
 func start_game():
 	ghost = Ghost.new()
 	anomaly_cleansed = true
 	get_tree().change_scene_to_file("res://src/game.tscn")
-	
+
 #The game continues until all anomalies are popped from the array
 func next():
 	if not anomaly_cleansed:
@@ -25,9 +26,18 @@ func next():
 			anomaly_cleansed = next_anomaly == GameManager.AnomalyType.NONE
 			get_tree().change_scene_to_file("res://src/game.tscn")
 		else:
-			print("GAME ENDING")
-			var menu = get_node("/root/Game/Menus")
-			menu.end_game(true)
+			anomaly_cleansed = false
+			next_anomaly == GameManager.AnomalyType.NONE
+			last_round = true
+			get_tree().change_scene_to_file("res://src/game.tscn")
+
+func load(g : Game):
+	game = g
+	if last_round:
+		var exorcism =  load("res://src/interactables/exorcism.tscn").instantiate()
+		get_tree().current_scene.add_child(exorcism)
+		exorcism.global_position = Vector3(8.5, 2.15, 5.995)
+	
 
 func try_cleanse():
 		#TODO: Implement cleasing code
