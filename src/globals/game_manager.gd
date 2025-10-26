@@ -17,4 +17,5 @@ func next():
 		cur_anomaly = next_anomaly
 		get_tree().change_scene_to_file("res://src/game.tscn")
 	else:
-		print("GAME WIN")
+		var menu = get_node("/root/Game/Menus")
+		menu.end_game(true)
