@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw4pvbevoeygb"]
+
+[ext_resource type="Script" uid="uid://b1tqn62151jly" path="res://src/interactables/haunted interactables/haunted broken/mirror.gd" id="1_uwkl3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rsth2"]
+size = Vector3(2, 2, 0.15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_owx8a"]
+size = Vector3(2, 2, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl1t3"]
+albedo_color = Color(0.0352, 0.19712, 0.44, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwkl3"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Mirror" type="StaticBody3D"]
+script = ExtResource("1_uwkl3")
+metadata/_custom_type_script = "uid://dwjhn5go5g0w3"
+
+[node name="NormalCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rsth2")
+
+[node name="NormalMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_owx8a")
+surface_material_override/0 = SubResource("StandardMaterial3D_wl1t3")
+
+[node name="HauntedCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rsth2")
+
+[node name="HauntedMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_owx8a")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwkl3")

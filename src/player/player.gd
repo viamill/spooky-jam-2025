@@ -8,6 +8,7 @@ extends CharacterBody3D
 var mouse_sensitivity: float = 0.25
 
 var _input_dir: Vector2
+var has_sage: bool = true
 
 var sage_not_used : bool = true
 
@@ -18,6 +19,12 @@ var sage_not_used : bool = true
 
 
 func _physics_process(delta: float) -> void:
+	label.visible = false
+	if raycast.is_colliding():
+		var collider: Object = raycast.get_collider()
+		if collider is Interactable:
+			label.visible = true
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	

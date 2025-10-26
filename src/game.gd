@@ -10,6 +10,8 @@ extends Node
 @onready var visual_anom_parent: Node = $AnomParents/VisualAnomParent
 @onready var audio_anom_parent: Node = $AnomParents/AudioAnomParent
 
+#var current_haunted_item: HauntedInteractable
+
 func get_anomaly(type: GameManager.AnomalyType) -> Node:
 	var selected: Node = null
 	match type:
@@ -41,3 +43,25 @@ func _ready() -> void:
 	GameManager.load(self)
 	#GameManager.game = self
 	#GameManager.set_anomaly()
+
+"""
+	set_anomaly()
+
+
+func set_anomaly():
+	anomaly = GameManager.cur_anomaly
+	
+	match anomaly:
+		GameManager.Anomaly.ELECTRONIC:
+			current_haunted_item = electronic_anomalies.haunt_item()
+		GameManager.Anomaly.BROKEN:
+			current_haunted_item = broken_anomalies.haunt_item()
+		GameManager.Anomaly.PLACED:
+			current_haunted_item = placed_anomalies.haunt_item()
+		GameManager.Anomaly.AUDIO:
+			current_haunted_item = audio_anomalies.haunt_item()
+		GameManager.Anomaly.NONE:
+			return
+	
+	current_haunted_item.is_cleansed = false
+"""
