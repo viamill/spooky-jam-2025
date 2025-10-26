@@ -6,11 +6,13 @@ enum AnomalyType {NONE, BROKEN, PLACED, MOVED, ELECTRONIC, VISUAL, AUDIO}
 
 var ghost : Ghost
 var game : Game
-var anomaly_cleansed = false
+var anomaly_cleansed = true
+var can_cleanse = true #one cleanse per round
 
 #On game start, a ghost is chosen and the scene is loaded without an anomaly
 func start_game():
 	ghost = Ghost.new()
+	can_cleanse = true
 	anomaly_cleansed = true
 	get_tree().change_scene_to_file("res://src/game.tscn")
 	
@@ -22,14 +24,18 @@ func next():
 	else:
 		var next_anomaly = ghost.get_next_anomaly()
 		if next_anomaly != null:
+			can_cleanse = true
+			anomaly_cleansed = next_anomaly == GameManager.AnomalyType.NONE
 			get_tree().change_scene_to_file("res://src/game.tscn")
 		else:
 			print("GAME ENDING")
 			var menu = get_node("/root/Game/Menus")
 			menu.end_game(true)
 
-
-
+func try_cleanse():
+	if can_cleanse:
+		can_cleanse = false
+		#TODO: Implement cleasing code
 
 """
 Choose random ghost

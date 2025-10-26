@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c3sw6fi03be47" path="res://src/game.gd" id="1_xq6wo"]
 [ext_resource type="PackedScene" uid="uid://cpdl6ffkel75e" path="res://src/player/player.tscn" id="2_3msxb"]
 [ext_resource type="PackedScene" uid="uid://cpeoswu8jrgnj" path="res://temp/house_level.tscn" id="2_xq6wo"]
-[ext_resource type="PackedScene" uid="uid://c76xsf036oouh" path="res://src/anomalies/mirror_item.tscn" id="4_kc8ui"]
+[ext_resource type="Script" uid="uid://bkltf3bi81jr" path="res://src/menus.gd" id="4_kc8ui"]
 [ext_resource type="Texture2D" uid="uid://0i48yl6lcaex" path="res://assets/notebook.png" id="5_bs6l1"]
 [ext_resource type="FontFile" uid="uid://b75avxfdmk0ss" path="res://assets/Silent Death.ttf" id="6_pk08u"]
 
@@ -28,6 +28,7 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
+script = ExtResource("4_kc8ui")
 
 [node name="Journal" type="Control" parent="Menus"]
 visible = false
@@ -157,7 +158,17 @@ horizontal_alignment = 1
 
 [node name="BrokenAnomParent" type="Node" parent="AnomParents"]
 
-[node name="MirrorItem" parent="AnomParents/BrokenAnomParent" instance=ExtResource("4_kc8ui")]
+[node name="MirrorItem" parent="AnomParents/BrokenAnomParent"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
 
 [node name="PlacedAnomParent" type="Node" parent="AnomParents"]
 
