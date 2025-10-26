@@ -5,26 +5,17 @@ enum AnomalyType {NONE, BROKEN, PLACED, MOVED, ELECTRONIC, VISUAL, AUDIO}
 
 
 var ghost : Ghost
-var cur_anomaly : AnomalyType 
-
-
-func set_anomaly() -> void:
-	cur_anomaly = AnomalyType.NONE
-	print(cur_anomaly)
-
-
+var game : Game
 
 #On game start, a ghost is chosen and the scene is loaded without an anomaly
 func start_game():
 	ghost = Ghost.new()
-	cur_anomaly = AnomalyType.NONE
 	get_tree().change_scene_to_file("res://src/game.tscn")
 	
 #The game continues until all anomalies are popped from the array
 func next():
-	var next_anomaly = ghost.possible_anomalies.pop_back()
+	var next_anomaly = ghost.get_next_anomaly()
 	if next_anomaly != null:
-		cur_anomaly = next_anomaly
 		get_tree().change_scene_to_file("res://src/game.tscn")
 	else:
 		print("GAME ENDING")
