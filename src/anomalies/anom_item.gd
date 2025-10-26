@@ -1,6 +1,7 @@
 class_name AnomItem
 extends Node3D
 
+@export var anom_type: GameManager.AnomalyType
 @export var norm_version: Node3D
 @export var anom_version: Node3D
 var cleansed = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://caaom1nmuj0y8"]
 
-[ext_resource type="Script" uid="uid://c3esvx2w4ns55" path="res://src/interactables/bed.gd" id="1_rwo1n"]
+[ext_resource type="Script" path="res://src/interactables/bed.gd" id="1_rwo1n"]
 [ext_resource type="PackedScene" uid="uid://cm37go1q8bkqv" path="res://temp/interactable_box.tscn" id="1_tv6ml"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2pfp"]
