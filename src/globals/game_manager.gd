@@ -7,6 +7,13 @@ enum AnomalyType {NONE, BROKEN, PLACED, MOVED, ELECTRONIC, VISUAL, AUDIO}
 var ghost : Ghost
 var cur_anomaly : AnomalyType 
 
+
+func set_anomaly() -> void:
+	cur_anomaly = AnomalyType.NONE
+	print(cur_anomaly)
+
+
+
 #On game start, a ghost is chosen and the scene is loaded without an anomaly
 func start_game():
 	ghost = Ghost.new()
@@ -20,9 +27,9 @@ func next():
 		cur_anomaly = next_anomaly
 		get_tree().change_scene_to_file("res://src/game.tscn")
 	else:
-		#TODO: Create ghost choosing
-		print("GAME WIN")
-
+		print("GAME ENDING")
+		var menu = get_node("/root/Game/Menus")
+		menu.end_game(true)
 
 
 

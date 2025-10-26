@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctgqoehp6yfro"]
+[gd_scene load_steps=10 format=3 uid="uid://ctgqoehp6yfro"]
 
 [ext_resource type="Script" uid="uid://c3sw6fi03be47" path="res://src/game.gd" id="1_xq6wo"]
 [ext_resource type="PackedScene" uid="uid://cpdl6ffkel75e" path="res://src/player/player.tscn" id="2_3msxb"]
-[ext_resource type="PackedScene" uid="uid://caaom1nmuj0y8" path="res://temp/house_level.tscn" id="2_xq6wo"]
+[ext_resource type="PackedScene" uid="uid://cpeoswu8jrgnj" path="res://temp/house_level.tscn" id="2_xq6wo"]
 [ext_resource type="PackedScene" uid="uid://c76xsf036oouh" path="res://src/anomalies/mirror_item.tscn" id="4_kc8ui"]
+[ext_resource type="Texture2D" uid="uid://0i48yl6lcaex" path="res://assets/notebook.png" id="5_bs6l1"]
+[ext_resource type="FontFile" uid="uid://b75avxfdmk0ss" path="res://assets/Silent Death.ttf" id="6_pk08u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqvko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdx1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bcji"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_xq6wo")
@@ -12,18 +20,156 @@ script = ExtResource("1_xq6wo")
 
 [node name="Player" parent="House_Level" instance=ExtResource("2_3msxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-walk_speed = 2.0
 
-[node name="BrokenAnomParent" type="Node" parent="."]
+[node name="Menus" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
 
-[node name="MirrorItem" parent="BrokenAnomParent" instance=ExtResource("4_kc8ui")]
+[node name="Journal" type="Control" parent="Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 
-[node name="PlacedAnomParent" type="Node" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Menus/Journal"]
+position = Vector2(576, 324)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_bs6l1")
 
-[node name="MovedAnomParent" type="Node" parent="."]
+[node name="TextEdit" type="TextEdit" parent="Menus/Journal"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 50.0
+offset_right = 549.0
+offset_bottom = 550.0
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_pk08u")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wqvko")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cdx1q")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_4bcji")
+text = "ghosts???"
+editable = false
 
-[node name="ElectronicAnomParent" type="Node" parent="."]
+[node name="TextEdit2" type="TextEdit" parent="Menus/Journal"]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 43.0
+offset_right = 956.0
+offset_bottom = 543.0
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_pk08u")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wqvko")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cdx1q")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_4bcji")
+text = "My Notes:
+"
+placeholder_text = "
+"
+wrap_mode = 1
 
-[node name="VisualAnomParent" type="Node" parent="."]
+[node name="Pause" type="Control" parent="Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 
-[node name="AudioAnomParent" type="Node" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -182.5
+offset_right = 222.0
+offset_bottom = 182.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="Menus/Pause/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="Quit" type="Button" parent="Menus/Pause/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="GameOver" type="Control" parent="Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="Menus/GameOver"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -182.5
+offset_right = 222.0
+offset_bottom = 267.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Restart" type="Button" parent="Menus/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play Again?"
+
+[node name="Quit" type="Button" parent="Menus/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="EndState" type="RichTextLabel" parent="Menus/GameOver"]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 1152.0
+offset_bottom = 250.0
+theme_override_font_sizes/normal_font_size = 75
+text = "Invalid End State"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="AnomParents" type="Node" parent="."]
+
+[node name="BrokenAnomParent" type="Node" parent="AnomParents"]
+
+[node name="MirrorItem" parent="AnomParents/BrokenAnomParent" instance=ExtResource("4_kc8ui")]
+
+[node name="PlacedAnomParent" type="Node" parent="AnomParents"]
+
+[node name="MovedAnomParent" type="Node" parent="AnomParents"]
+
+[node name="ElectronicAnomParent" type="Node" parent="AnomParents"]
+
+[node name="VisualAnomParent" type="Node" parent="AnomParents"]
+
+[node name="AudioAnomParent" type="Node" parent="AnomParents"]
+
+[connection signal="pressed" from="Menus/Pause/VBoxContainer/Resume" to="Menus" method="close_menu"]
+[connection signal="pressed" from="Menus/Pause/VBoxContainer/Quit" to="Menus" method="quit"]
+[connection signal="pressed" from="Menus/GameOver/VBoxContainer/Restart" to="Menus" method="restart"]
+[connection signal="pressed" from="Menus/GameOver/VBoxContainer/Quit" to="Menus" method="quit"]

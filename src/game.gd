@@ -1,24 +1,19 @@
 extends Node
 
-#This takes type of anomaly and sets 
 @onready var player: Player = $House_Level/Player
-@onready var anomaly: GameManager.AnomalyType
-var anomaly_cleansed = true
 
-@onready var broken_anom_parent: Node = $BrokenAnomParent
-@onready var placed_anom_parent: Node = $PlacedAnomParent
-@onready var moved_anom_parent: Node = $MovedAnomParent
-@onready var electronic_anom_parent: Node = $ElectronicAnomParent
-@onready var visual_anom_parent: Node = $VisualAnomParent
-@onready var audio_anom_parent: Node = $AudioAnomParent
+@onready var broken_anom_parent: Node = $AnomParents/BrokenAnomParent
+@onready var placed_anom_parent: Node = $AnomParents/PlacedAnomParent
+@onready var moved_anom_parent: Node = $AnomParents/MovedAnomParent
+@onready var electronic_anom_parent: Node = $AnomParents/ElectronicAnomParent
+@onready var visual_anom_parent: Node = $AnomParents/VisualAnomParent
+@onready var audio_anom_parent: Node = $AnomParents/AudioAnomParent
 
+func get_anomaly(type: GameManager.AnomalyType) -> Node3D:
+	#TODO
+	return null
 
-#Needs array of objects
 
 func _ready() -> void:
 	InputStack.register_input_callback(player.handle_input)
-	set_anomaly()
-
-func set_anomaly() -> void:
-	anomaly = GameManager.cur_anomaly
-	print(anomaly)
+	GameManager.set_anomaly()

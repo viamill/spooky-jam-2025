@@ -6,4 +6,5 @@ func interact() -> void:
 	if game.anomaly_cleansed:
 		GameManager.next()
 	else:
-		print("GAME LOSS")
+		var menu = get_node("/root/Game/Menus")
+		menu.end_game(false)

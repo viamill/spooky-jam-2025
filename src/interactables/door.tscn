@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3saec0iu5nj"]
+
+[ext_resource type="Script" uid="uid://y43tjipgg6v5" path="res://src/interactables/door.gd" id="1_g0m2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1hf5"]
+albedo_color = Color(0.3, 0.19535, 0.027, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jm7b"]
+size = Vector3(4, 7, 1)
+
+[node name="Door" type="StaticBody3D"]
+script = ExtResource("1_g0m2s")
+
+[node name="BathroomDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3.5, 0)
+size = Vector3(4, 7, 1)
+material = SubResource("StandardMaterial3D_k1hf5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3.5, 0)
+shape = SubResource("BoxShape3D_0jm7b")

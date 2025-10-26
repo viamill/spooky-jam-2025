@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://t1jloi4qaf20"]
+
+[ext_resource type="Script" uid="uid://c5p6ed7la5sbd" path="res://src/interactables/radio.gd" id="1_t2jpt"]
+[ext_resource type="AudioStream" uid="uid://djn2ch7gavok5" path="res://src/assets/broken-radio-319304.mp3" id="2_e3djj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_coiog"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5f0lv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qflqt"]
+albedo_color = Color(0, 1, 1, 1)
+
+[node name="Radio" type="StaticBody3D"]
+script = ExtResource("1_t2jpt")
+metadata/_custom_type_script = "uid://bh4fink2wpb0e"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_coiog")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_5f0lv")
+surface_material_override/0 = SubResource("StandardMaterial3D_qflqt")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+stream = ExtResource("2_e3djj")

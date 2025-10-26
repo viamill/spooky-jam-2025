@@ -2,10 +2,10 @@ class_name Player
 extends CharacterBody3D
 
 
-@export var walk_speed: float = 1.8
-@export var acceleration: float = 15.0
+@export var walk_speed: float = 5.0
+@export var acceleration: float = 20.0
 
-var mouse_sensitivity: float = 0.1
+var mouse_sensitivity: float = 0.25
 
 var _input_dir: Vector2
 
