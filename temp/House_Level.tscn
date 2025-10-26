@@ -314,11 +314,13 @@ lights = [NodePath("BathroomLight"), NodePath("BathroomLight2")]
 [node name="BathroomLight" type="OmniLight3D" parent="Interactables/BathroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 5)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="BathroomLight2" type="OmniLight3D" parent="Interactables/BathroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -1)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="LivingRoomLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
@@ -328,21 +330,25 @@ lights = [NodePath("LivingRoomLight"), NodePath("LivingRoomLight2"), NodePath("L
 [node name="LivingRoomLight" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 5)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="LivingRoomLight2" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 5)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="LivingRoomLight3" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 13)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="LivingRoomLight4" type="OmniLight3D" parent="Interactables/LivingRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 13)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="KitchenLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
@@ -352,6 +358,7 @@ lights = [NodePath("KitchenLight")]
 [node name="KitchenLight" type="OmniLight3D" parent="Interactables/KitchenLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 5)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="DiningRoomLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
@@ -361,11 +368,13 @@ lights = [NodePath("DiningRoomLight"), NodePath("DiningRoomLight2")]
 [node name="DiningRoomLight" type="OmniLight3D" parent="Interactables/DiningRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -5)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="DiningRoomLight2" type="OmniLight3D" parent="Interactables/DiningRoomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 5)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="BedroomLightswitch" parent="Interactables" node_paths=PackedStringArray("lights") instance=ExtResource("4_y84fu")]
@@ -375,11 +384,13 @@ lights = [NodePath("BedroomLight"), NodePath("BedroomLight2")]
 [node name="BedroomLight" type="OmniLight3D" parent="Interactables/BedroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 1)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="BedroomLight2" type="OmniLight3D" parent="Interactables/BedroomLightswitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 1)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="TV" parent="Interactables" instance=ExtResource("5_6l80s")]
