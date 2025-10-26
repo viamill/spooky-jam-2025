@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5vvt3v8coko"]
 
-[ext_resource type="Script" uid="uid://dqhjbqtwxgfjn" path="res://src/interactables/lightswitch.gd" id="1_fb3t2"]
+[ext_resource type="Script" uid="uid://dqhjbqtwxgfjn" path="res://src/interactables/haunted interactables/haunted electronics/lightswitch.gd" id="1_fb3t2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mqmhb"]
 size = Vector3(0.1, 0.1, 0.1)

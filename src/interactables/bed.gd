@@ -1,9 +1,9 @@
 extends Interactable
 
-@onready var game = get_tree().current_scene
+@onready var game: Game = get_tree().current_scene
 
 func interact() -> void:
-	if game.anomaly_cleansed:
+	if not game.current_haunted_item or game.current_haunted_item.is_cleansed:
 		GameManager.next()
 	else:
 		var menu = get_node("/root/Game/Menus")

@@ -1,14 +1,14 @@
 extends Node
 
-enum Anomaly {NONE, TEST1, TEST2, TEST3}
-enum GhostType {TEST}
+enum Anomaly {NONE, BROKEN, PLACED, AUDIO, VISUAL, ELECTRONIC}
+enum GhostType {DEMON, POLTERGEIST, BANSHEE}
 
 var ghost : Ghost
 var cur_anomaly : Anomaly 
 
 func start_game():
 	ghost = Ghost.new()
-	cur_anomaly = Anomaly.NONE
+	cur_anomaly = ghost.anomalies.pop_back()
 	get_tree().change_scene_to_file("res://src/game.tscn")
 
 func next():

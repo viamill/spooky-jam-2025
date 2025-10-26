@@ -8,7 +8,9 @@ extends CharacterBody3D
 var mouse_sensitivity: float = 0.25
 
 var _input_dir: Vector2
+var has_sage: bool = true
 
+@onready var game: Game = get_tree().current_scene
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
 @onready var raycast: RayCast3D = $Head/Raycast
@@ -44,3 +46,11 @@ func handle_input(event: InputEvent) -> void:
 		var collider: Object = raycast.get_collider()
 		if collider and collider is Interactable:
 			collider.interact()
+	
+	if event.is_action_pressed("cleanse"):
+		if has_sage:
+			print("You used your sage!")
+			has_sage = false
+			var current_haunted_item: HauntedInteractable = game.current_haunted_item
+			if global_position.distance_to(current_haunted_item.global_position) <= 5.0:
+				game.current_haunted_item.is_cleansed = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctgqoehp6yfro"]
+[gd_scene load_steps=18 format=3 uid="uid://ctgqoehp6yfro"]
 
 [ext_resource type="Script" uid="uid://c3sw6fi03be47" path="res://src/game.gd" id="1_xq6wo"]
 [ext_resource type="PackedScene" uid="uid://cpdl6ffkel75e" path="res://src/player/player.tscn" id="2_3msxb"]
@@ -6,6 +6,14 @@
 [ext_resource type="Script" uid="uid://bkltf3bi81jr" path="res://src/menus.gd" id="4_kc8ui"]
 [ext_resource type="Texture2D" uid="uid://0i48yl6lcaex" path="res://assets/notebook.png" id="5_bs6l1"]
 [ext_resource type="FontFile" uid="uid://b75avxfdmk0ss" path="res://assets/Silent Death.ttf" id="6_pk08u"]
+[ext_resource type="PackedScene" uid="uid://b5vvt3v8coko" path="res://src/interactables/haunted interactables/haunted electronics/lightswitch.tscn" id="7_4bcji"]
+[ext_resource type="Script" uid="uid://cqblrn854co36" path="res://src/anomalies/electronic_anomalies.gd" id="7_uktfx"]
+[ext_resource type="PackedScene" uid="uid://cqood4yswagvp" path="res://src/interactables/haunted interactables/haunted electronics/tv.tscn" id="8_uktfx"]
+[ext_resource type="PackedScene" uid="uid://t1jloi4qaf20" path="res://src/interactables/haunted interactables/haunted electronics/radio.tscn" id="9_y2hwx"]
+[ext_resource type="Script" uid="uid://duuwrvi1mwhjn" path="res://src/anomalies/broken_anomalies.gd" id="11_y2hwx"]
+[ext_resource type="PackedScene" uid="uid://bw4pvbevoeygb" path="res://src/interactables/haunted interactables/haunted broken/mirror.tscn" id="12_qiocs"]
+[ext_resource type="Script" uid="uid://djhdor2dqtb5j" path="res://src/anomalies/placed_anomalies.gd" id="13_xdrfk"]
+[ext_resource type="PackedScene" uid="uid://08ml73ma48t4" path="res://src/interactables/haunted interactables/haunted placed/ghost_orb.tscn" id="14_g3j30"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqvko"]
 
@@ -18,9 +26,11 @@ script = ExtResource("1_xq6wo")
 
 [node name="House_Level" parent="." instance=ExtResource("2_xq6wo")]
 
+[node name="GhostOrb" parent="House_Level" instance=ExtResource("14_g3j30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
 [node name="Player" parent="House_Level" instance=ExtResource("2_3msxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-walk_speed = 5.0
 
 [node name="Menus" type="Control" parent="."]
 process_mode = 3
@@ -154,6 +164,116 @@ theme_override_font_sizes/normal_font_size = 75
 text = "Invalid End State"
 scroll_active = false
 horizontal_alignment = 1
+
+[node name="BrokenAnomalies" type="Node" parent="."]
+script = ExtResource("11_y2hwx")
+metadata/_custom_type_script = "uid://duuwrvi1mwhjn"
+
+[node name="Mirror" parent="BrokenAnomalies" instance=ExtResource("12_qiocs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 3, 15.5)
+
+[node name="ElectronicAnomalies" type="Node" parent="."]
+script = ExtResource("7_uktfx")
+metadata/_custom_type_script = "uid://o3gdupbuao8l"
+
+[node name="Lights" type="Node" parent="ElectronicAnomalies"]
+
+[node name="BathroomLightswitch" parent="ElectronicAnomalies/Lights" node_paths=PackedStringArray("lights") instance=ExtResource("7_4bcji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.5, 6)
+lights = [NodePath("BathroomLight"), NodePath("BathroomLight2")]
+
+[node name="BathroomLight" type="OmniLight3D" parent="ElectronicAnomalies/Lights/BathroomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 5)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="BathroomLight2" type="OmniLight3D" parent="ElectronicAnomalies/Lights/BathroomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -1)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="LivingRoomLightswitch" parent="ElectronicAnomalies/Lights" node_paths=PackedStringArray("lights") instance=ExtResource("7_4bcji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -14)
+lights = [NodePath("LivingRoomLight"), NodePath("LivingRoomLight2"), NodePath("LivingRoomLight3"), NodePath("LivingRoomLight4")]
+
+[node name="LivingRoomLight" type="OmniLight3D" parent="ElectronicAnomalies/Lights/LivingRoomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 5)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="LivingRoomLight2" type="OmniLight3D" parent="ElectronicAnomalies/Lights/LivingRoomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 5)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="LivingRoomLight3" type="OmniLight3D" parent="ElectronicAnomalies/Lights/LivingRoomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 13)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="LivingRoomLight4" type="OmniLight3D" parent="ElectronicAnomalies/Lights/LivingRoomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 13)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="KitchenLightswitch" parent="ElectronicAnomalies/Lights" node_paths=PackedStringArray("lights") instance=ExtResource("7_4bcji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -14)
+lights = [NodePath("KitchenLight")]
+
+[node name="KitchenLight" type="OmniLight3D" parent="ElectronicAnomalies/Lights/KitchenLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 5)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="DiningRoomLightswitch" parent="ElectronicAnomalies/Lights" node_paths=PackedStringArray("lights") instance=ExtResource("7_4bcji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.5, 4)
+lights = [NodePath("DiningRoomLight"), NodePath("DiningRoomLight2")]
+
+[node name="DiningRoomLight" type="OmniLight3D" parent="ElectronicAnomalies/Lights/DiningRoomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -5)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="DiningRoomLight2" type="OmniLight3D" parent="ElectronicAnomalies/Lights/DiningRoomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 5)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="BedroomLightswitch" parent="ElectronicAnomalies/Lights" node_paths=PackedStringArray("lights") instance=ExtResource("7_4bcji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1.5, 8)
+lights = [NodePath("BedroomLight"), NodePath("BedroomLight2")]
+
+[node name="BedroomLight" type="OmniLight3D" parent="ElectronicAnomalies/Lights/BedroomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 1)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="BedroomLight2" type="OmniLight3D" parent="ElectronicAnomalies/Lights/BedroomLightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, 1)
+light_energy = 10.0
+omni_range = 10.0
+
+[node name="TV" parent="ElectronicAnomalies" instance=ExtResource("8_uktfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -14.75)
+
+[node name="Radio" parent="ElectronicAnomalies" instance=ExtResource("9_y2hwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -7)
+
+[node name="PlacedAnomalies" type="Node" parent="."]
+script = ExtResource("13_xdrfk")
+metadata/_custom_type_script = "uid://djhdor2dqtb5j"
+
+[node name="Marker3D" type="Marker3D" parent="PlacedAnomalies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -8)
+
+[node name="Marker3D2" type="Marker3D" parent="PlacedAnomalies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 3)
+
+[node name="Marker3D3" type="Marker3D" parent="PlacedAnomalies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, 14)
+
+[node name="Marker3D4" type="Marker3D" parent="PlacedAnomalies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 3, 7)
 
 [connection signal="pressed" from="Menus/Pause/VBoxContainer/Resume" to="Menus" method="close_menu"]
 [connection signal="pressed" from="Menus/Pause/VBoxContainer/Quit" to="Menus" method="quit"]

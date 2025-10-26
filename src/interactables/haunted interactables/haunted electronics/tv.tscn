@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqood4yswagvp"]
 
-[ext_resource type="Script" uid="uid://b0qustmoj5tfx" path="res://src/interactables/tv.gd" id="1_mjgjc"]
+[ext_resource type="Script" uid="uid://b0qustmoj5tfx" path="res://src/interactables/haunted interactables/haunted electronics/tv.gd" id="1_mjgjc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6eje"]
 size = Vector3(5, 4, 1.5)

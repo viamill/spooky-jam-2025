@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://t1jloi4qaf20"]
 
-[ext_resource type="Script" uid="uid://c5p6ed7la5sbd" path="res://src/interactables/radio.gd" id="1_t2jpt"]
-[ext_resource type="AudioStream" uid="uid://djn2ch7gavok5" path="res://src/assets/broken-radio-319304.mp3" id="2_e3djj"]
+[ext_resource type="Script" uid="uid://c5p6ed7la5sbd" path="res://src/interactables/haunted interactables/haunted electronics/radio.gd" id="1_t2jpt"]
+[ext_resource type="AudioStream" uid="uid://djn2ch7gavok5" path="res://assets/broken-radio-319304.mp3" id="2_e3djj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_coiog"]
 
