@@ -1,3 +1,4 @@
+class_name Bed
 extends Interactable
 
 @onready var game: Game = get_tree().current_scene

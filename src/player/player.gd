@@ -16,13 +16,14 @@ var has_sage: bool = true
 @onready var raycast: RayCast3D = $Head/Raycast
 @onready var sage_label: Label = $Control/VBoxContainer/SageLabel
 @onready var interact_label: Label = $Control/InteractLabel
+@onready var sage_mesh: MeshInstance3D = $Head/SageMesh
 
 
 func _physics_process(delta: float) -> void:
 	interact_label.visible = false
 	if raycast.is_colliding():
 		var collider: Object = raycast.get_collider()
-		if collider is Interactable:
+		if collider and (collider is Door or collider is ElectronicInteractable or collider is Bed):
 			interact_label.visible = true
 	
 	if not is_on_floor():
@@ -52,14 +53,17 @@ func handle_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interact"):
 		var collider: Object = raycast.get_collider()
-		if collider and collider is Interactable:
+		if collider and (collider is Door or collider is ElectronicInteractable or collider is Bed):
 			collider.interact()
 	
 	if event.is_action_pressed("cleanse"):
 		if has_sage:
 			print("You used your sage!")
 			has_sage = false
+			$Head/SageMesh.visible = false
 			var current_haunted_item: HauntedInteractable = game.current_haunted_item
+			if not current_haunted_item:
+				return
 			if global_position.distance_to(current_haunted_item.global_position) <= 5.0:
 				game.current_haunted_item.is_cleansed = true
-		sage_label.text = "E - Use sage (0 Charges)"
+		sage_label.text = "E - Use sage (0 Charges)\nJ - Journal"
