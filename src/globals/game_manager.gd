@@ -35,7 +35,7 @@ func load(g : Game):
 	game = g
 	if last_round:
 		var exorcism =  load("res://src/interactables/exorcism.tscn").instantiate()
-		get_tree().current_scene.add_child(exorcism)
+		game.add_child(exorcism)
 		exorcism.global_position = Vector3(8.5, 2.15, 5.995)
 	
 

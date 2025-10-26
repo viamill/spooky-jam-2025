@@ -55,12 +55,19 @@ offset_bottom = 550.0
 theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_pk08u")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wqvko")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cdx1q")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_4bcji")
-text = "ghosts???"
+text = "There's something else in this apartment with me. The spirit is desperately trying to possess me, but I have held strong. I must exorcize it from my apartment before it takes complete control over me. I've narrowed it down to three different ghosts, but they each have different exorcism methods.
+
+Demon: Demons are very aggressive spirits.
+Poltergeist: Poltergeists like to interact with the physical objects within the apartment.
+Wraith: Wraiths are less tangible and struggle to interact as physically as Demons and Poltergeists
+
+Note to self: There may be anomalies within my apartment. I must cleanse them with sage before I go to bed or the spirit will have an opening to possess me. I only have enough sage to use it once a day, so I have to use it sparingly."
 editable = false
+wrap_mode = 1
 
 [node name="TextEdit2" type="TextEdit" parent="Menus/Journal"]
 layout_mode = 0
@@ -71,7 +78,7 @@ offset_bottom = 543.0
 theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_pk08u")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wqvko")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cdx1q")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_4bcji")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://3w76dg7d76kl"]
 
-[ext_resource type="Script" uid="uid://wpnrdbgmxdog" path="res://src/interactables/exorcism.gd" id="1_v3kna"]
+[ext_resource type="Script" uid="uid://uqnnvqwgogi0" path="res://src/interactables/exorcism.gd" id="1_v3kna"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm1ws"]
 albedo_color = Color(0.416754, 8.48304e-07, 2.16588e-07, 1)
@@ -25,6 +25,10 @@ material = SubResource("StandardMaterial3D_vm1ws")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Demon"]
 shape = SubResource("BoxShape3D_v3kna")
 
+[node name="Label3D" type="Label3D" parent="Demon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+text = "Demon"
+
 [node name="Poltergeist" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 script = ExtResource("1_v3kna")
@@ -36,6 +40,10 @@ material = SubResource("StandardMaterial3D_dk377")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Poltergeist"]
 shape = SubResource("BoxShape3D_v3kna")
 
+[node name="Label3D" type="Label3D" parent="Poltergeist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+text = "Poltergeist"
+
 [node name="Wraith" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 script = ExtResource("1_v3kna")
@@ -46,3 +54,7 @@ material = SubResource("StandardMaterial3D_6byo4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wraith"]
 shape = SubResource("BoxShape3D_v3kna")
+
+[node name="Label3D" type="Label3D" parent="Wraith"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+text = "Wraith"
