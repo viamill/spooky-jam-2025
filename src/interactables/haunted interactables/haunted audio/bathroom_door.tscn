@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3saec0iu5nj"]
+
+[ext_resource type="Script" uid="uid://y43tjipgg6v5" path="res://src/interactables/haunted interactables/haunted audio/bathroom_door.gd" id="1_rwfo3"]
+[ext_resource type="AudioStream" uid="uid://curirdv2mlnx2" path="res://assets/opening-door-411632.mp3" id="2_gvt43"]
+[ext_resource type="AudioStream" uid="uid://exjirwdtbq8o" path="res://assets/close-door-382723.mp3" id="3_bhdwa"]
+[ext_resource type="AudioStream" uid="uid://b47frjva78wo6" path="res://assets/fast-knocking-on-door-352704.mp3" id="4_daaf7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1hf5"]
+albedo_color = Color(0.3, 0.19535, 0.027, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jm7b"]
+size = Vector3(4, 7, 1)
+
+[node name="BathroomDoor" type="StaticBody3D" node_paths=PackedStringArray("door_open", "door_close", "door_knock")]
+script = ExtResource("1_rwfo3")
+door_open = NodePath("Door open")
+door_close = NodePath("Door close")
+door_knock = NodePath("Door knock")
+
+[node name="BathroomDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3.5, 0)
+size = Vector3(4, 7, 1)
+material = SubResource("StandardMaterial3D_k1hf5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3.5, 0)
+shape = SubResource("BoxShape3D_0jm7b")
+
+[node name="Door open" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_gvt43")
+
+[node name="Door close" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_bhdwa")
+
+[node name="Door knock" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_daaf7")

@@ -14,9 +14,16 @@ var has_sage: bool = true
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
 @onready var raycast: RayCast3D = $Head/Raycast
+@onready var label: Label = $Control/Label
 
 
 func _physics_process(delta: float) -> void:
+	label.visible = false
+	if raycast.is_colliding():
+		var collider: Object = raycast.get_collider()
+		if collider is Interactable:
+			label.visible = true
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	

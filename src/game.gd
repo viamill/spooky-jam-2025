@@ -5,10 +5,11 @@ extends Node
 var anomaly: GameManager.Anomaly
 var current_haunted_item: HauntedInteractable
 
-@onready var player: Player = $House_Level/Player
+@onready var player: Player = $Player
 @onready var electronic_anomalies: Anomalies = $ElectronicAnomalies
 @onready var broken_anomalies: BrokenAnomalies = $BrokenAnomalies
 @onready var placed_anomalies: PlacedAnomalies = $PlacedAnomalies
+@onready var audio_anomalies: AudioAnomalies = $AudioAnomalies
 
 
 func _ready() -> void:
@@ -26,6 +27,8 @@ func set_anomaly():
 			current_haunted_item = broken_anomalies.haunt_item()
 		GameManager.Anomaly.PLACED:
 			current_haunted_item = placed_anomalies.haunt_item()
+		GameManager.Anomaly.AUDIO:
+			current_haunted_item = audio_anomalies.haunt_item()
 		GameManager.Anomaly.NONE:
 			return
 	

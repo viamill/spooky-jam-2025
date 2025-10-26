@@ -2,7 +2,7 @@ class_name PlacedAnomalies
 extends Anomalies
 
 
-@onready var ghost_orb: HauntedInteractable = $"../House_Level/GhostOrb"
+@onready var ghost_orb: StaticBody3D = $"../GhostOrb"
 
 
 func haunt_item() -> HauntedInteractable:

@@ -9,7 +9,7 @@ func _init() -> void:
 	match g_index:
 		0:
 			type = GameManager.GhostType.DEMON
-			anomalies = [GameManager.Anomaly.BROKEN, GameManager.Anomaly.ELECTRONIC, GameManager.Anomaly.PLACED]
+			anomalies = [GameManager.Anomaly.AUDIO, GameManager.Anomaly.BROKEN, GameManager.Anomaly.PLACED, GameManager.Anomaly.ELECTRONIC]
 			anomalies.shuffle()
 		#1:
 			#type = GameManager.GhostType.TEST
