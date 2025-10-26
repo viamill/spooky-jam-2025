@@ -1,4 +1,4 @@
-class_name PlacedAnomalies
+class_name MovedAnomalies
 extends Anomalies
 
 

@@ -19,16 +19,16 @@ var sage_not_used : bool = true
 
 
 func _physics_process(delta: float) -> void:
-	label.visible = false
-	if raycast.is_colliding():
-		var collider: Object = raycast.get_collider()
-		if collider is Interactable:
-			label.visible = true
+	#label.visible = false
+	#if raycast.is_colliding():
+		#var collider: Object = raycast.get_collider()
+		#if collider is Interactable:
+			#label.visible = true
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	var dir: Vector3 = (transform.basis * Vector3(_input_dir.x, 0.0, _input_dir.y)).normalized()
+	var dir: Vector3 = -(transform.basis * Vector3(_input_dir.x, 0.0, _input_dir.y)).normalized()
 	
 	if dir:
 		velocity.x = move_toward(velocity.x, dir.x * walk_speed, delta * acceleration)
@@ -69,3 +69,4 @@ func handle_input(event: InputEvent) -> void:
 			menu.end_game(false)
 		elif global_position.distance_to(GameManager.ghost.cur_anomaly.global_position) <= 5:
 			GameManager.anomaly_cleansed = true
+			print("Sage used!")

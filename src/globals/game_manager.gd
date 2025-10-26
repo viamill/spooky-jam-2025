@@ -1,6 +1,6 @@
 extends Node
 
-enum GhostType {POLTERGEIST, DEMON, BANSHEE, WRAITH}
+enum GhostType {POLTERGEIST, DEMON, WRAITH}
 enum AnomalyType {NONE, BROKEN, PLACED, MOVED, ELECTRONIC, VISUAL, AUDIO}
 
 
@@ -8,6 +8,7 @@ var ghost : Ghost
 var game : Game
 var anomaly_cleansed = true
 var last_round : bool = false
+var _started = false
 
 #On game start, a ghost is chosen and the scene is loaded without an anomaly
 func start_game():
@@ -30,13 +31,15 @@ func next():
 
 func load(g : Game):
 	game = g
-	var next_anomaly = ghost.get_next_anomaly()
-	anomaly_cleansed = next_anomaly == GameManager.AnomalyType.NONE
-	if last_round:
-		var exorcism =  load("res://src/interactables/exorcism.tscn").instantiate()
-		game.add_child(exorcism)
-		exorcism.global_position = Vector3(8.5, 2.15, 5.995)
-	
+	if (_started):
+		var next_anomaly = ghost.get_next_anomaly()
+		anomaly_cleansed = next_anomaly == GameManager.AnomalyType.NONE
+		if last_round:
+			var exorcism =  load("res://src/interactables/exorcism.tscn").instantiate()
+			game.add_child(exorcism)
+			exorcism.global_position = Vector3(8.5, 2.15, 5.995)
+	else:
+		_started = true
 
 func try_cleanse():
 		#TODO: Implement cleasing code

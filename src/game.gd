@@ -29,13 +29,14 @@ func get_anomaly(type: GameManager.AnomalyType) -> Node:
 			selected = audio_anom_parent
 		_:
 			return null
-	print("Anom Type: ", type)
-	var options = selected.get_children()
-	options.shuffle()
-	if options.size() == 0:
-		return null
-	else:
-		return options[0]
+	print("Anom Type: ", GameManager.AnomalyType.keys()[type])
+	return selected.haunt_item()
+	#var options = selected.get_children()
+	#options.shuffle()
+	#if options.size() == 0:
+		#return null
+	#else:
+		#return options[0]
 
 
 func _ready() -> void:
